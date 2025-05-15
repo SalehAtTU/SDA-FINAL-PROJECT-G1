@@ -1,11 +1,3 @@
-
-
-# generate an SSH key for your VMs
-resource "tls_private_key" "ssh_key" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
 module "rg" {
   source   = "../Azurerm/azurerm_resource_group"
   name     = "${local.prefix}-rg"
