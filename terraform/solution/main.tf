@@ -16,7 +16,7 @@ module "vnet" {
 
   name = "${local.prefix}-vnet"
 
-  location = "Central India"
+  location = "UAE North"
 
   resource_group_name = module.rg.resource_group.name
 
@@ -47,7 +47,7 @@ module "aks" {
 
   resource_group_name = module.rg.resource_group.name
 
-  location = "Central India"
+  location = "UAE North"
 
   dns_prefix = "${local.prefix}-dns"
 

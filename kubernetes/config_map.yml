@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: frontend-configmap
-  namespace: trainer-portal
+  namespace: project-portal
 data:
   config.json: |
     {

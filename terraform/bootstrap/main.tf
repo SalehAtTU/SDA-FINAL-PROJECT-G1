@@ -1,5 +1,3 @@
-
-
 # Create the RG if it doesn’t exist
 resource "azurerm_resource_group" "tfstate_rg" {
   name     = var.rg_name
