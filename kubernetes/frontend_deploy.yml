@@ -4,7 +4,7 @@ metadata:
   name: frontend-deploy
   labels:
     app: frontend-app
-  namespace: trainer-portal
+  namespace: project-portal
 spec:
   replicas: 1
   selector:

@@ -32,7 +32,7 @@ module "aks" {
   source                   = "../Azurerm/azurerm_aks"
   name                     = "${local.prefix}-aks"
   resource_group_name      = module.rg.resource_group.name
-  location                 = "Central India"
+  location                 = "uae north"
   dns_prefix               = "${local.prefix}-dns"
   vnet_subnet_id           = module.subnet.subnet.id
   identity_type            = "SystemAssigned"

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-clusterip-service
-  namespace: trainer-portal
+  namespace: project-portal
 spec:
   type: ClusterIP
   ports:
