@@ -1,5 +1,5 @@
 locals {
-  prefix                  = "devops2-group1-final-project"
+  prefix                  = "devops2-group1-project"
   location                = "uae north"
   default_node_pool_name  = "sau"
 
