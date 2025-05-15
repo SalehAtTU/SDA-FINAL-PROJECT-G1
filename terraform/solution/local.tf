@@ -1,12 +1,9 @@
 locals {
+  prefix                  = "devops2-group1-final-project"
+  location                = "eastus"
+  default_node_pool_name  = "sau"
 
- 
-  prefix                 = "devops2-saurabh-dh"
-  location               = "Central India"
-  default_node_pool_name = "sau"
-
-  vnet_address_space = ["10.2.0.0/16"]
-
+  vnet_address_space      = ["10.2.0.0/16"]
   subnet_address_prefixes = ["10.2.2.0/24"]
 
   sql_db = {
@@ -19,10 +16,49 @@ locals {
     sql_database_name    = "auth-user"
     sku_name             = "Basic"
     storage_account_type = "Local"
-
   }
 
+  nsg_rule = {
+    allow_ssh = {
+      priority                   = 1001
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_port_range          = "*"
+      destination_port_range     = "22"
+      source_address_prefix      = "*"
+      destination_address_prefix = "*"
+    }
+    allow_3000 = {
+      priority                   = 1002
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_port_range          = "*"
+      destination_port_range     = "3000"
+      source_address_prefix      = "*"
+      destination_address_prefix = "*"
+    }
+  }
 
+  public_ips = {
+    master-ip = {
+      allocation_method = "Static"
+    }
+  }
 
+  nics = {
+    master-nic = {
+      ip_configuration_name         = "master-ipconfig"
+      subnet                        = "internal"
+      private_ip_address_allocation = "Dynamic"
+      public_ip                     = "master-ip"
+    }
+  }
 
+  virtual_machine = {
+    master = {
+      nic = "master-nic"
+    }
+  }
 }
