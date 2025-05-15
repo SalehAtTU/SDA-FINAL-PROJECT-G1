@@ -16,6 +16,17 @@ resource "azurerm_storage_account" "tfstate" {
 
 resource "azurerm_storage_container" "tfstate" {
   name                 = var.container
-  storage_account_name = azurerm_storage_account.tfstate.name
+  storage_account_id     = azurerm_storage_account.tfstate.id
   container_access_type = "private"
+}
+output "tfstate_primary_access_key" {
+  description = "Primary access key for the tfstate storage account"
+  value       = azurerm_storage_account.tfstate.primary_access_key
+  sensitive   = true
+}
+
+output "tfstate_blob_connection_string" {
+  description = "Blob connection string for the tfstate storage account"
+  value       = azurerm_storage_account.tfstate.primary_blob_connection_string
+  sensitive   = true
 }
